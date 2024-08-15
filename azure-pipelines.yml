@@ -1,5 +1,19 @@
+trigger:
+  branches:
+    include:
+      - main  # Triggers the pipeline on commits to the 'main' branch
+
+pool:
+  vmImage: ubuntu-latest  # Specifies the use of the latest Ubuntu VM image
+
+variables:
+  buildConfiguration: 'Release'  # Define the build configuration
+
+steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web'
+    projects: '**/*.csproj'  # Adjust this path to match your project's location
+    arguments: '--configuration $(buildConfiguration)'  # Use the 'Release' configuration
 
+# Optionally, add other tasks here (e.g., testing, packaging)
