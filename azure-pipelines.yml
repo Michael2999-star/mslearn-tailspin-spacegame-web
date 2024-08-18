@@ -10,6 +10,12 @@ variables:
   buildConfiguration: 'Release'  # Define the build configuration
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      echo Hello world
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -17,3 +23,4 @@ steps:
     arguments: '--configuration $(buildConfiguration)'  # Use the 'Release' configuration
 
 # Optionally, add other tasks here (e.g., testing, packaging)
+
