@@ -4,7 +4,7 @@ trigger:
       - main  # Triggers the pipeline on commits to the 'main' branch
 
 pool:
-  vmImage: ubuntu-latest  # Specifies the use of the latest Ubuntu VM image
+  name: Windows  # Specifies your self-hosted agent pool
 
 variables:
   buildConfiguration: 'Release'  # Define the build configuration
